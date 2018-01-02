@@ -1,0 +1,14 @@
+<div id="jobs">
+	<div class="job">
+		<h2><%= @job.title%> </h2>
+		<p><%= @job.description %></p>
+		<p><%= @job.company %></p>
+		<button class="btn btn-default"><%= link_to "Apply to Job", @job.url %></button>
+	</div>
+</div>
+<br>
+<div id="links">
+	<%= link_to "Back", root_path, class: "btn btn-default btn-sm" %> 
+	<%= link_to "Edit", edit_job_path, class: "btn btn-default btn-sm" %>
+	<%= link_to "Delete", job_path(@job), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-danger btn-sm" %>
+</div>
