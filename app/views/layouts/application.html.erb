@@ -20,10 +20,20 @@
 	  				<% Category.all.each do |category| %>
 							<li><%= link_to category.name, jobs_path(category: category.name) %></li>
 	  				<% end %>
-	  				<%= link_to "New Job", new_job_path, class: "navbar-text navbar-right" %>
+	  				<%= link_to "New Job", new_job_path, class: "navbar-text" %>
+	  				<% if user_signed_in? %>
+		  				<li><%= link_to "Account", edit_user_registration_path %></li>
+		  				<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+	  				<% else %>
+							<li class="pull-right"><%= link_to "Sign In", new_user_session_path %></li>
+							<li class="pull-right"><%= link_to "Sign Up", new_user_registration_path %></li>
+	  				<% end %>
 	  			</ul>
 	    	</div>	
     	</div>
+    	<% flash.each do |name, msg| %>
+    		<%= content_tag :div, msg, class: "alert alert-info" %>
+			<% end %>
   	<div class="container">
   		<%= yield %>
   	</div>    
