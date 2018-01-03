@@ -15,3 +15,10 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.job{
+	border-bottom: 1px solid #abc7cc;
+	a{
+		text-decoration: none;
+	}
+}

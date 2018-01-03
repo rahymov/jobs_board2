@@ -1,5 +1,9 @@
-<% @jobs.each do |job| %>
-	<h2 class="shake"><%= link_to job.title, job %></h2>
-	<p><%= job.company %></p>
-<% end %>
-<%= link_to "New Job", new_job_path %>
+<div id="jobs">
+	<% @jobs.each do |job| %>
+	<div class="job">
+		<h2 class="animated bounceInUp"><%= link_to job.title, job %></h2>
+		<p class="animated bounceInUp"><%= job.company %></p>
+	</div>
+	<% end %>
+</div>
+
